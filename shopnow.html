@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>addcart</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #shopping-form {
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: rgb(75, 75, 224);
+        }
+
+        #address-form,
+        #payment-form {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="shopping-form">
+        <form id="address-form">
+            <h2>Delivery Address</h2>
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" required><br><br>
+
+            <label for="address">Address:</label>
+            <textarea id="address" required></textarea><br><br>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" required><br><br>
+
+            <div class="form-group">
+                <label>Mobile</label>
+                <input type="tel" class="form-control" id="mobile" placeholder="Enter Mobile-Number">
+                <p id="mbtext"></p>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#mobile").keyup(function () {
+                if (checknumber()) {
+                    $("#mobile").css("border", "2px solid green");
+                    $("#mbtext").html("<font color='green'> Mobile number validated</font>")
+                }
+                else {
+                    $("#mobile").css("border", "2px solid red");
+                    $("#mbtext").html("<font color='red'>Mobile number not validated</font>")
+                }
+            })
+        });
+
+        function checknumber() {
+            var pattern = /^[0-9]{10}$/;
+            var mobileNumber = $("#mobile").val();
+            return pattern.test(mobileNumber);
+        }
+
+        if
+    </script>
+</body>
+</html>
